@@ -42,6 +42,10 @@ function GamePage({ wordCat, gameOver, score, selectWord }) {
     }
   }, [right]);
 
+  useEffect(() => {
+    setTentativas(word.length - 2);
+  }, [word]);
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       console.log(wrong);
@@ -63,7 +67,8 @@ function GamePage({ wordCat, gameOver, score, selectWord }) {
       </div>
       {pontuacao > 0 && (
         <div>
-          Sua pontuação: <span style={{ fontWeight: "bold" }}>{pontuacao}</span>
+          Sua pontuação:{" "}
+          <span style={{ fontWeight: "bold", color: "red" }}>{pontuacao}</span>
         </div>
       )}
       <p>Tente advinhar uma letra</p>

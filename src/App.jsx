@@ -26,6 +26,12 @@ function App() {
   const categories = Object.keys(wordsList);
 
   const selectWord = () => {
+    if (wordCat[1]) {
+      wordsList[wordCat[0]] = wordsList[wordCat[0]].filter((el) => {
+        el != wordCat[1];
+      });
+    }
+
     const cat = categories[Math.floor(Math.random() * categories.length)];
 
     const values = wordsList[cat];
